@@ -6,6 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="controllers.js"></script>
+    <script type="text/javascript" src="ToDoFactory.js"></script>
+    <script type="text/javascript" src="ToDoService.js"></script>
   </head>
   <body>
     <div ng-controller="ToDoController as controller">
@@ -14,6 +16,7 @@
       -->
       <p ng-repeat="todo in controller.todos">
         {{ todo.text }}: {{ todo.completed ? "complete" : "not complete" }}
+        <span ng-click="todo.complete();">Complete</span>
       </p>
       <!-- ng-model allows us to tell angular to link
       what happens on the input to a parameter in
@@ -25,7 +28,7 @@
       into our controller expression as an argument
     -->
       <button ng-click='controller.addToDo(todoText);'>Add a ToDo</button>
-      <button 
+      <button ng-click='controller.removeToDo();'>Remove last ToDo</button>
     </div>
   </body>
 </html>
